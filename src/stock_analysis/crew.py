@@ -10,8 +10,13 @@ from crewai_tools import WebsiteSearchTool, ScrapeWebsiteTool, TXTSearchTool
 from dotenv import load_dotenv
 load_dotenv()
 
-from langchain.llms import Ollama
-llm = Ollama(model="llama3.1")
+from crewai import LLM
+
+llm = LLM(
+    model="ollama/llama3.2",
+    base_url="http://localhost:11434"
+)
+
 
 @CrewBase
 class StockAnalysisCrew:
